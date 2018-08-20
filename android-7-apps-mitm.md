@@ -17,7 +17,7 @@ Starting on Android 7, user CA certificates--e.g. imported Burp Suite's self-sig
        <base-config>
            <trust-anchors>
                <certificates src="system" />
-               <!-- This is the key to solving this issue! -->
+               <!-- The following line is the key to solving this issue! -->
                <certificates src="user" />
            </trust-anchors>
        </base-config>
