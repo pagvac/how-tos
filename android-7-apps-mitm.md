@@ -30,14 +30,20 @@ Starting on Android 7, user CA certificates--e.g. imported Burp Suite's self-sig
 
    `$ apktool b ./hackme/`
 
-6. Sign 
+6. Create dummy key store 
 
    `$ keytool -genkey -v -keystore test.keystore -storepass password -alias android -keypass password -keyalg RSA -keysize 2048 -validity 10000`
 
    _Leave default fields (just press Enter) and type `yes` when asked if certificate fields are correct_
 
-   `$ jarsigner -verbose -keystore test.keystore -storepass password -keypass password ./hackme/dist/hackme.apk android`
+7. Sign
 
-7. Install APK while handset is connected via USB
+   `$ jarsigner -verbose -keystore test.keystore -storepass password -keypass password ./hackme/dist/hackme.apk android`
+      
+8. Install APK while handset is connected via USB
 
    `$ adb install ./hackme/dist/hackme.apk`
+
+If you have Android Studio installed and have at least created 1 project with it, the following step can be used as a subtitute for steps 6 and 7:
+
+   `$ jarsigner -keystore ~/.android/debug.keystore -storepass android -keypass android hackme/hackme.apk androiddebugkey`
