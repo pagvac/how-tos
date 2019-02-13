@@ -38,7 +38,7 @@ Starting on Android 7, user CA certificates--e.g. imported Burp Suite's self-sig
 
    `$ keytool -genkey -v -keystore test.keystore -storepass password -alias android -keypass password -keyalg RSA -keysize 2048 -validity 10000`
 
-_Leave default fields (just press Enter) and type `yes` when asked if certificate fields are correct_
+   _Leave default fields (just press Enter) and type `yes` when asked if certificate fields are correct_
  
    `$ jarsigner -verbose -keystore test.keystore -storepass password -keypass password ./hackme/dist/hackme.apk android`
       
